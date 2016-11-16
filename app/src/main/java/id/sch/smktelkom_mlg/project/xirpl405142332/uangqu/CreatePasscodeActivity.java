@@ -12,6 +12,9 @@ public class CreatePasscodeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        setTitle("Create New PIN");
+
         super.onCreate(savedInstanceState);
         if (getSupportActionBar() != null)
             getSupportActionBar().hide();

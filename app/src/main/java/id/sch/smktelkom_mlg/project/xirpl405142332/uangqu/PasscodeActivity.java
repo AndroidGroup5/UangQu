@@ -1,3 +1,4 @@
+
 package id.sch.smktelkom_mlg.project.xirpl405142332.uangqu;
 
 import android.os.Bundle;
@@ -10,6 +11,9 @@ import android.widget.Toast;
 public class PasscodeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        setTitle("Log In");
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_passcode);
         EditText pinBox = (EditText)findViewById(R.id.pinEditText);
@@ -18,7 +22,7 @@ public class PasscodeActivity extends AppCompatActivity {
             @Override
             public void validate(TextView textView, String text) {
                 if (text.trim().length()<4) {
-                    textView.setError("This Field can't be Empty");
+                    textView.setError("Min. Length is 4");
                     }
                 else {
                     textView.setError(null);
