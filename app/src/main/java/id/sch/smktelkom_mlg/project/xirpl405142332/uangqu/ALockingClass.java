@@ -8,8 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 
 public abstract class ALockingClass extends AppCompatActivity {
 
-    public static final String PREFS = "MoneyManagerPreferences";
-    public static final String KEY = "MoneyManagerKey";
+    public static final String PREFS = "UangQuPref";
+    public static final String KEY = "UanngQuKey";
     public static final String LOGGED = "Logged";
 
     public static final int CheckPin = 1;
@@ -63,15 +63,15 @@ public abstract class ALockingClass extends AppCompatActivity {
         }
 
         private boolean isLogged() {
-        return sharedPreferences.getBoolean(LOGGED,false);
+            return sharedPreferences.getBoolean(LOGGED, false);
         }
 
-        private boolean isPinStored() {
+    private boolean isPinStored() {
         return sharedPreferences.contains(KEY);
     }
 
     protected void deletePin() {
-    sharedPreferences.edit().remove(KEY).clear().commit();
+        sharedPreferences.edit().remove(KEY).clear().commit();
     }
 
     @Override

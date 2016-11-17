@@ -34,7 +34,7 @@ public class PasscodeActivity extends AppCompatActivity {
     public void logInOnClick(View view) {
         EditText pinBox = (EditText)findViewById(R.id.pinEditText);
         if (pinBox.getError()==null) {
-            if (ALockingClass.checkPin(pinBox.getText().toString())) {
+            if (id.sch.smktelkom_mlg.project.xirpl405142332.uangqu.ALockingClass.checkPin(pinBox.getText().toString())) {
                 finish();
             }
             else {

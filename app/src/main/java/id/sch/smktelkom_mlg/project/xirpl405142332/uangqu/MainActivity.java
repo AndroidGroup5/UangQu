@@ -1,19 +1,29 @@
 package id.sch.smktelkom_mlg.project.xirpl405142332.uangqu;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 
 
-public class MainActivity extends ALockingClass implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends id.sch.smktelkom_mlg.project.xirpl405142332.uangqu.ALockingClass
+        implements NavigationView.OnNavigationItemSelectedListener {
+
+    AlertDialog.Builder dialog;
+    View dialogView;
+    LayoutInflater inflater;
+    EditText txt_id, txt_nama, txt_alamat;
+    String id, nama, alamat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +38,7 @@ public class MainActivity extends ALockingClass implements NavigationView.OnNavi
 
             @Override
             public void onClick(View view) {
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-            .setAction("Action", null).show();
+                DialogForm("", "", "", "SIMPAN");
             }
 
         });
@@ -44,7 +53,63 @@ public class MainActivity extends ALockingClass implements NavigationView.OnNavi
         navigationView.setNavigationItemSelectedListener(this);
         }
 
-        @Override
+    private void DialogForm(String idx, String namax, String alamatx, String button) {
+        dialog = new AlertDialog.Builder(MainActivity.this);
+        inflater = getLayoutInflater();
+        dialogView = inflater.inflate(R.layout.form_biodata, null);
+        dialog.setView(dialogView);
+        dialog.setCancelable(true);
+        dialog.setIcon(R.mipmap.ic_launcher);
+        dialog.setTitle("Form Biodata");
+
+        txt_id = (EditText) dialogView.findViewById(R.id.txt_id);
+        txt_nama = (EditText) dialogView.findViewById(R.id.txt_nama);
+        txt_alamat = (EditText) dialogView.findViewById(R.id.txt_alamat);
+
+        if (!idx.isEmpty()) {
+            txt_id.setText(idx);
+            txt_nama.setText(namax);
+            txt_alamat.setText(alamatx);
+        } else {
+            kosong();
+        }
+
+        dialog.setPositiveButton(button, new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                id = txt_id.getText().toString();
+                nama = txt_nama.getText().toString();
+                alamat = txt_alamat.getText().toString();
+
+                simpan_update();
+                dialog.dismiss();
+            }
+        });
+
+        dialog.setNegativeButton("BATAL", new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+                kosong();
+            }
+        });
+
+        dialog.show();
+    }
+
+    private void simpan_update() {
+
+    }
+
+    private void kosong() {
+        txt_id.setText(null);
+        txt_nama.setText(null);
+        txt_alamat.setText(null);
+    }
+
+    @Override
         public void onBackPressed() {
             DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
             if (drawer.isDrawerOpen(GravityCompat.START)) {
@@ -85,14 +150,6 @@ public class MainActivity extends ALockingClass implements NavigationView.OnNavi
                 // Handle the camera action
             }
             else if (id == R.id.nav_gallery) {
-            }
-            else if (id == R.id.nav_slideshow) {
-            }
-            else if (id == R.id.nav_manage) {
-            }
-            else if (id == R.id.nav_share) {
-            }
-            else if (id == R.id.nav_send) {
             }
 
             DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

@@ -13,26 +13,29 @@
 
     <EditText
         android:id="@+id/pinEditText"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="97dp"
         android:ems="10"
         android:fontFamily="sans-serif"
+        android:gravity="top"
         android:hint="Enter Your PIN"
         android:inputType="numberPassword"
         android:maxLength="8"
-        android:textAlignment="center"
+        android:textAlignment="viewStart"
         app:layout_heightPercent="10%" />
 
     <Button
         android:id="@+id/button"
+        style="@android:style/Widget.DeviceDefault.Light.Button"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="37dp"
         android:layout_centerVertical="true"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="75dp"
+        android:background="@color/colorPrimaryDark"
         android:onClick="logInOnClick"
-        android:text="Log in" />
+        android:text="Log in"
+        android:textColor="#ffffff" />
 </android.support.percent.PercentFrameLayout>

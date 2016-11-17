@@ -12,7 +12,7 @@
 
     <EditText
         android:id="@+id/editTextEntry"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
@@ -24,14 +24,14 @@
         android:inputType="numberPassword"
         android:maxLength="8"
         android:tag="align"
-        android:textAlignment="center"
+        android:textAlignment="viewStart"
         app:layout_heightPercent="10%"
         tools:fontFamily="@android:string/ok" />
 
 
     <EditText
         android:id="@+id/editTextConfirm"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/editTextEntry"
         android:layout_gravity="center_horizontal"
@@ -41,18 +41,21 @@
         android:hint="Confirm Your PIN"
         android:inputType="numberPassword"
         android:maxLength="8"
-        android:textAlignment="center"
+        android:textAlignment="viewStart"
         android:textAllCaps="false"
         tools:fontFamily="@android:string/ok" />
 
     <Button
         android:id="@+id/buttonCreatePin"
+        style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="37dp"
         android:layout_below="@+id/editTextConfirm"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="150dp"
+        android:background="@color/colorPrimaryDark"
         android:onClick="createPinOnClick"
-        android:text="Create pin" />
+        android:text="Create pin"
+        android:textColor="#ffffff" />
 
 </android.support.percent.PercentFrameLayout>
