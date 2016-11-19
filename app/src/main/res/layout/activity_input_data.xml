@@ -1,57 +1,101 @@
-<?xml version="1.0" encoding="utf-8"?>
-<android.support.percent.PercentFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_input_data"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="id.sch.smktelkom_mlg.project.xirpl405142332.InputData">
+    tools:context="id.sch.smktelkom_mlg.project.xirpl405142332.InputData"
+    android:orientation="vertical">
 
     <ImageView
-        android:id="@+id/imageView6"
         android:layout_width="wrap_content"
-        android:layout_height="77dp"
-        android:layout_gravity="center_horizontal"
-        app:srcCompat="@drawable/record1" />
+        android:layout_height="75dp"
+        app:srcCompat="@drawable/record1"
+        android:id="@+id/imageView2" />
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/textInputLayout">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/etJumlahUang"
+            android:hint="Jumlah Uang"
+            android:singleLine="true"
+            android:inputType="number|numberSigned" />
+
+        <requestFocus />
+    </android.support.design.widget.TextInputLayout>
+
+    <DatePicker
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button1"
+        android:layout_alignRight="@+id/spinner"
+        android:layout_alignEnd="@+id/spinner"
+        android:id="@+id/tgl" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textInputLayout"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="14dp"
+        android:layout_marginEnd="14dp"
+        android:entries="@array/kategori"
+        android:id="@+id/kategori" />
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/textInputLayout1">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/etCatatan"
+            android:hint="Catatan"
+            android:singleLine="false" />
+    </android.support.design.widget.TextInputLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:paddingBottom="@dimen/activity_vertical_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingTop="100dp"
-        android:weightSum="1">
+        android:orientation="horizontal">
 
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
+        <Button
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="10">
+            android:layout_alignParentBottom="true"
+            android:text="SAVE"
+            android:id="@+id/bSave" />
 
-            <EditText
-                android:id="@+id/jumlah"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Jumlah Uang"
-                android:inputType="number|numberSigned" />
-        </android.support.design.widget.TextInputLayout>
-
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
+        <Button
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="10">
-
-            <EditText
-                android:id="@+id/catatan"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Catatan"
-                android:singleLine="false" />
-        </android.support.design.widget.TextInputLayout>
-
+            android:layout_alignBaseline="@+id/button1"
+            android:layout_alignBottom="@+id/button1"
+            android:text="CANCEL"
+            android:id="@+id/bCancel" />
     </LinearLayout>
-</android.support.percent.PercentFrameLayout>
+
+</LinearLayout>
+</ScrollView>
